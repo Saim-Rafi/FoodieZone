@@ -18,14 +18,14 @@ const Header= () =>{
     );
 };
 
-const RestaurantCard = () =>{
+const RestaurantCard = (props) =>{
     return(
         <div className="res-card">
             <img src="https://b.zmtcdn.com/data/pictures/chains/6/1906/7f1786f705196dffb0a91b1ec25f8cdb_featured_v2.jpg" alt="res-img" id="res-img"/>
-            <h4 id="heading">Nazeers</h4>
-            <p>Biryani,North Indian</p>
-            <p>4.4 stars</p>
-            <p>38minutes delivery </p>
+            <h4 id="heading">{props.resName}</h4>
+            <p>{props.cuisine}</p>
+            <p>{props.rating}</p>
+            <p>{props.deliveryTime}</p>
         </div>
     )
 }
@@ -35,8 +35,8 @@ const Body= () => {
         <div className="body">
             <div className="search">Search</div>
             <div className="res-container">
-                <RestaurantCard />
-                <RestaurantCard />
+                <RestaurantCard resName="Nazeers" cuisine="Biryani" rating="4.2" deliveryTime="40mins"/>
+                <RestaurantCard resName="MCD" cuisine="Burgers" rating="4.4" deliveryTime="45mins"/>
                 <RestaurantCard />
                 <RestaurantCard />
                 <RestaurantCard />
