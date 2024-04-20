@@ -43,8 +43,8 @@
 .res-card{
     background-color: rgb(190, 189, 189);
     border-radius: 10px;
-    width: 200px;
-    height: 300px;
+    width: 250px;
+    /* height: 300px; */
     margin: 10px;
 }
 
