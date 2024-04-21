@@ -1,38 +1,3 @@
-import ReactDOM from "react-dom/client";
-
-const Header= () =>{
-    return(
-        <div className="header">
-            <div className="logo-container">
-                <img src="https://yt3.googleusercontent.com/ytc/AIdro_naJ5pFQzX0oakS9ECVgd4fs3GG4uwIGJUNTu14gqz8Mg=s900-c-k-c0x00ffffff-no-rj" alt="Logo" className="logo" />
-            </div>
-            <div className="nav-items">
-                <ul>
-                    <li><a href="#">Home</a></li>
-                    <li><a href="#">About Us</a></li>
-                    <li><a href="#">Contact Us</a></li>
-                    <li><a href="#">Cart</a></li>
-                </ul>
-            </div>
-        </div>
-    );
-};
-
-const RestaurantCard = (props) =>{
-    const {resData}=props;
-    const {cloudinaryImageId,name,cuisines,avgRating,maxDeliveryTime}=resData?.data;
-    return(
-        <div className="res-card">
-            <img src={"https://res.cloudinary.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_264,h_288,c_fill/" + cloudinaryImageId} alt="res-img" id="res-img"/>
-            <h4 id="heading">{name}</h4>
-            <p>{cuisines.join(",")}</p>
-            <p>{avgRating} stars</p>
-            <p>{maxDeliveryTime} minutes</p>
-        </div>
-    )
-} 
-
-
 const resList = [
     {
       type: 'restaurant',
@@ -2071,31 +2036,4 @@ const resList = [
     },
   ];
 
-const Body= () => {
-    return(
-        <div className="body">
-            <div className="search">Search</div>
-            <div className="res-container">
-                {resList.map((restaurant)=>(
-                    <RestaurantCard resData={restaurant} key={restaurant.data.id}/>
-                ))}
-
-            
-            </div>
-        </div>
-    )
-}
-
-const AppLayout= () =>{
-    return(
-        <div className="app">
-            <Header />
-            <Body />
-        </div>
-    );
-};
-
-const root = ReactDOM.createRoot(document.getElementById("root"));
-
-root.render(<AppLayout/>);
-
+export default resList; 
