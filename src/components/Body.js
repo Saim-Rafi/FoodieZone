@@ -1,35 +1,25 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import RestaurantCard from "./RestaurantCard";
 import resList from "./utils/mockData";
 
-
 const Body = () => {
-    // let ListofRestaurants2=[
+  
+  const [ListofRestaurants, setListofRestaurants] = useState([]);
 
-    //     {
-    //         data:{
-    //             id: '121603',
-    //             name: 'Kannur Food Point',
-    //             cloudinaryImageId: 'bmwn4n4bn6n1tcpc8x2h',
-    //             cuisines: ['Kerala', 'Chinese'],
-    //             maxDeliveryTime: 24,
-    //             avgRating: '3.9'
-    //         }
-    //     },
-    //     {
-    //         data:{
-    //             id: '121604',
-    //             name: 'Meghna Food',
-    //             cloudinaryImageId: 'bmwn4n4bn6n1tcpc8x2h',
-    //             cuisines: ['Kerala', 'Chinese'],
-    //             maxDeliveryTime: 38,
-    //             avgRating: '4.2'
-    //         }
-    
-    //     }
-    // ];
- 
-    const [ListofRestaurants,setListofRestaurants]=useState(resList);
+  useEffect(() => {
+    fetchData();
+  }, []);
+
+  const fetchData = async () => {
+    const data = await fetch(
+      "https://www.swiggy.com/dapi/restaurants/list/v5?lat=28.7040592&lng=77.10249019999999&collection=83645&tags=layout_CCS_NorthIndian&sortBy=&filters=&type=rcv2&offset=0&page_type=null"
+    );
+    const json = await data.json();
+
+    console.log(json);
+
+    setListofRestaurants(json?.data?.cards[2].card.card) ;
+  };
 
   return (
     <div className="body">
@@ -37,8 +27,8 @@ const Body = () => {
         <button
           className="filter-btn"
           onClick={() => {
-            const filteredList=ListofRestaurants.filter(
-                (res)=>res.data.avgRating>4
+            const filteredList = ListofRestaurants.filter(
+              (res) => res.data.avgRating > 4
             );
             setListofRestaurants(filteredList);
           }}

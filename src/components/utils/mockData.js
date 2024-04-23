@@ -2036,4 +2036,31 @@ const resList = [
     },
   ];
 
+
+  // let ListofRestaurants2=[
+
+  //     {
+  //         data:{
+  //             id: '121603',
+  //             name: 'Kannur Food Point',
+  //             cloudinaryImageId: 'bmwn4n4bn6n1tcpc8x2h',
+  //             cuisines: ['Kerala', 'Chinese'],
+  //             maxDeliveryTime: 24,
+  //             avgRating: '3.9'
+  //         }
+  //     },
+  //     {
+  //         data:{
+  //             id: '121604',
+  //             name: 'Meghna Food',
+  //             cloudinaryImageId: 'bmwn4n4bn6n1tcpc8x2h',
+  //             cuisines: ['Kerala', 'Chinese'],
+  //             maxDeliveryTime: 38,
+  //             avgRating: '4.2'
+  //         }
+
+  //     }
+  // ];
+
+
 export default resList; 
